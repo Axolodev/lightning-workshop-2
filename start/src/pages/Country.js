@@ -156,9 +156,6 @@ export default class CountryPage extends Lightning.Component {
   static flagWidth = styles.spacing.xxxlarge * 1.5;
   static flagHeight = CountryPage.flagWidth * 0.64;
 
-  /** API */
-  async getCountryData(code) {}
-
   set country(country) {
     const { flags, name, population, region, capital, languages } = country;
 
