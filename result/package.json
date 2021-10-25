@@ -1,0 +1,7 @@
+{
+  "name": "2.workshop.app",
+  "description": "Lightning Workshop 2",
+  "dependencies": {
+    "@lightningjs/sdk": "^4.7.0"
+  }
+}

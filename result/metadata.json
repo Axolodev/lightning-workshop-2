@@ -1,0 +1,6 @@
+{
+  "name": "Lightning Workshop 2",
+  "identifier": "2.workshop.app",
+  "version": "1.0.0",
+  "icon": "./static/icon.png"
+}
