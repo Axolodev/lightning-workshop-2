@@ -55,7 +55,6 @@ export default class CountryPage extends Lightning.Component {
             direction: "column",
             padding: styles.spacing.small,
           },
-          shader: null,
           Name: {
             text: {
               fontSize: styles.fontSizes.xxxlarge.size,
@@ -216,5 +215,9 @@ export default class CountryPage extends Lightning.Component {
 
   _handleEnter() {
     Router.navigate("home");
+  }
+
+  _handleUp() {
+    Router.focusWidget("NegativeToggler");
   }
 }

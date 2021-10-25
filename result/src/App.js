@@ -1,5 +1,6 @@
-import { Utils, Router } from "@lightningjs/sdk";
+import { Utils, Router, Lightning } from "@lightningjs/sdk";
 import routes from "./routes";
+import NegativeToggler from "./widgets/NegativeToggler";
 
 // routing, API work, using widgets, components' lifecycles, more about textures + shaders,
 // and maybe animations and children to parent communication
@@ -13,7 +14,41 @@ export default class App extends Router.App {
       ...super._template(),
       w: 1920,
       h: 1080,
+      color: 0xfff0f0f0,
+      rect: true,
+
+      Widgets: {
+        NegativeToggler: {
+          type: NegativeToggler,
+        },
+      },
     };
+  }
+
+  _negative = false;
+
+  set negative(value) {
+    this._negative = value;
+
+    if (value) {
+      this.patch({
+        shader: {
+          type: Lightning.shaders.Inversion,
+        },
+      });
+    } else {
+      this.patch({
+        shader: null,
+      });
+    }
+  }
+
+  get negative() {
+    return this._negative;
+  }
+
+  $toggleNegative() {
+    this.negative = !this.negative;
   }
 
   static getFonts() {

@@ -27,7 +27,6 @@ export default class CountryCard extends Lightning.Component {
           direction: "column",
           padding: styles.spacing.small,
         },
-        shader: null,
         Name: {
           text: {
             fontSize: styles.fontSizes.large.size,

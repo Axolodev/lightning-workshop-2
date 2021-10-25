@@ -65,7 +65,9 @@ export default class HomePage extends Lightning.Component {
   }
 
   _handleUp() {
-    if (this._index - HomePage.columns >= 0) {
+    if (this._index === 0) {
+      Router.focusWidget("NegativeToggler");
+    } else if (this._index - HomePage.columns >= 0) {
       this._index -= HomePage.columns;
       this.animateToSelected();
     }
