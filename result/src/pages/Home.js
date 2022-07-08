@@ -2,6 +2,7 @@ import { Lightning, Router } from "@lightningjs/sdk";
 import { getAll } from "../api/country";
 import CountryCard from "../components/CountryCard";
 import styles from "../styles";
+import Navbar from "../widgets/Navbar";
 
 export default class HomePage extends Lightning.Component {
   static _template() {
@@ -14,6 +15,7 @@ export default class HomePage extends Lightning.Component {
       },
 
       Items: {
+        y: Navbar.totalHeight,
         w: 1920 - styles.spacing.large * 2,
         flex: {
           direction: "row",
@@ -65,8 +67,8 @@ export default class HomePage extends Lightning.Component {
   }
 
   _handleUp() {
-    if (this._index === 0) {
-      Router.focusWidget("NegativeToggler");
+    if (this._index <= 5) {
+      Router.focusWidget("Navbar");
     } else if (this._index - HomePage.columns >= 0) {
       this._index -= HomePage.columns;
       this.animateToSelected();
@@ -96,6 +98,12 @@ export default class HomePage extends Lightning.Component {
       this.animateToSelected();
     }
     return true;
+  }
+
+  _active() {
+    this.patch({
+      y: -this.focusedItem?.finalY || 0,
+    });
   }
 
   animateToSelected() {

@@ -1,6 +1,6 @@
 import { Utils, Router, Lightning } from "@lightningjs/sdk";
 import routes from "./routes";
-import NegativeToggler from "./widgets/NegativeToggler";
+import Navbar from "./widgets/Navbar";
 
 // routing, API work, using widgets, components' lifecycles, more about textures + shaders,
 // and maybe animations and children to parent communication
@@ -18,8 +18,8 @@ export default class App extends Router.App {
       rect: true,
 
       Widgets: {
-        NegativeToggler: {
-          type: NegativeToggler,
+        Navbar: {
+          type: Navbar,
         },
       },
     };

@@ -1,5 +1,6 @@
 import { Lightning } from "@lightningjs/sdk";
 import styles from "../styles";
+import Navbar from "../widgets/Navbar";
 
 export default class HomePage extends Lightning.Component {
   static _template() {
@@ -13,6 +14,8 @@ export default class HomePage extends Lightning.Component {
 
       Items: {
         w: 1920 - styles.spacing.large * 2,
+        y: Navbar.totalHeight,
+
         flex: {
           direction: "row",
           justifyContent: "space-between",

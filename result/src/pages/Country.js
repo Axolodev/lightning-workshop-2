@@ -1,6 +1,7 @@
 import { Lightning, Router } from "@lightningjs/sdk";
 import { getCountry } from "../api/country";
 import styles from "../styles";
+import Navbar from "../widgets/Navbar";
 
 export default class CountryPage extends Lightning.Component {
   static _template() {
@@ -9,9 +10,10 @@ export default class CountryPage extends Lightning.Component {
       flex: {
         direction: "column",
         padding: styles.spacing.large,
+        paddingTop: styles.spacing.large + Navbar.totalHeight,
       },
       BackButton: {
-        texture: Lightning.Tools.getShadowRect(
+        texture: Lightning.Tools.getRoundRect(
           200,
           styles.fontSizes.large.height + styles.spacing.xsmall * 2,
           8
@@ -218,6 +220,34 @@ export default class CountryPage extends Lightning.Component {
   }
 
   _handleUp() {
-    Router.focusWidget("NegativeToggler");
+    Router.focusWidget("Navbar");
+  }
+
+  _focus() {
+    this.tag("BackButton").patch({
+      texture: Lightning.Tools.getRoundRect(
+        200,
+        styles.fontSizes.large.height + styles.spacing.xsmall * 2,
+        8,
+        4,
+        0xffc09d7b,
+        false,
+        0
+      ),
+    });
+  }
+
+  _unfocus() {
+    this.tag("BackButton").patch({
+      texture: Lightning.Tools.getRoundRect(
+        200,
+        styles.fontSizes.large.height + styles.spacing.xsmall * 2,
+        8,
+        4,
+        0x00c09d7b,
+        false,
+        0
+      ),
+    });
   }
 }

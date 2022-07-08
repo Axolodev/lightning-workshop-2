@@ -7,12 +7,12 @@ export default {
     {
       path: "home",
       component: HomePage,
-      widgets: ["NegativeToggler"],
+      widgets: ["Navbar"],
     },
     {
       path: "country/:countryId",
       component: CountryPage,
-      widgets: ["NegativeToggler"],
+      widgets: ["Navbar"],
     },
   ],
 };
